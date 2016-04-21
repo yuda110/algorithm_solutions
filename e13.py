@@ -1,3 +1,4 @@
+#python3
 def plus_all_num(str_num) :
     sum = 0
     for i in range(1, 101):

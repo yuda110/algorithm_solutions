@@ -1,3 +1,4 @@
+#python3
 def cal_number_of_case(range_to) :
     pre_case = [1]*range_to
     next_case = [1]*range_to

@@ -1,6 +1,6 @@
-﻿#각 자리 숫자를 5제곱해서 더했을 때 자기 자신이 되는 수들의 합
+﻿#python3
+#각 자리 숫자를 5제곱해서 더했을 때 자기 자신이 되는 수들의 합
 #1) 각자리 5제곱을 미리 계산해두고
-#
 import time
 import math
 
@@ -9,10 +9,6 @@ square_arr = []
 for i in range(0, 10) :
     square_arr.append(i ** 5)
 
-#input
-#output 
-# foo(1,2,3) -> sum(1^5, 2^5, 3^5)
-# foo(1,2) -> sum(1^5, 2^5)
 def sum_out_squares_of_five(*args) :
     result = 0
     for a in args:

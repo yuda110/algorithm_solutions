@@ -1,3 +1,4 @@
+#python3
 import math
 
 def cal_digit(x, y) :

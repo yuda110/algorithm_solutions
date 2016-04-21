@@ -1,4 +1,4 @@
-﻿#1 ~ 9 팬디지털 구하기
+﻿#python3
 import re
 
 def is_pandigital(formula):

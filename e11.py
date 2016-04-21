@@ -1,3 +1,4 @@
+#python3
 def classify_nums(nums) :
     arr = [0]*20*20
     i = 1

@@ -1,4 +1,5 @@
-﻿from math import factorial
+﻿#python3
+from math import factorial
 
 def get_factorial_num(range_from, range_to):
     result_sum = 0

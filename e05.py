@@ -1,3 +1,4 @@
+#python3
 def is_devidable(num_todo, num_to_devide):
     return num_todo % num_to_devide == 0
 

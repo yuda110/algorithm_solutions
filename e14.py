@@ -1,3 +1,4 @@
+#python3
 import time
 
 def cal_hailstone_sequence(num) :

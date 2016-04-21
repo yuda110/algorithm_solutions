@@ -1,3 +1,4 @@
+#python3
 def sum_square(range_from, range_to) :
     sum_square = 0
     for i in range(range_from, range_to) :

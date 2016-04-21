@@ -1,3 +1,4 @@
+#python3
 import time
 
 def is_pita(a, b, c) :

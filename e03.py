@@ -1,4 +1,5 @@
-#prime_list = []
+#python3
+
 last_prime = 0
 
 def prime_factor(target) :
@@ -6,7 +7,6 @@ def prime_factor(target) :
     while target != 1 :
         while target % i == 0 :
             last_prime = i
-            #prime_list.append(i)
             target = target / i
         if target == 1 :
             break
@@ -15,4 +15,3 @@ def prime_factor(target) :
 
 prime_result = prime_factor(600851475143)
 print(prime_result)
-#print(max(prime_result))

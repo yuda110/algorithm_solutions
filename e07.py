@@ -1,3 +1,4 @@
+#python3
 import time
 
 #def is_prime_num(num) :    #16.15 seconds
