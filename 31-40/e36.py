@@ -1,10 +1,10 @@
-<<<<<<< HEAD
-def get_binary_num(decimal_num):
-=======
-﻿def get_binary_num(decimal_num):
->>>>>>> origin/master
-    binary_num = bin(decimal_num).replace('0b', '')
-    return binary_num
+# <<<<<<< HEAD
+# def get_binary_num(decimal_num):
+# =======
+# ﻿def get_binary_num(decimal_num):
+# >>>>>>> origin/master
+#     binary_num = bin(decimal_num).replace('0b', '')
+#     return binary_num
 
 def is_palindrome(num):
     str_num = str(num)

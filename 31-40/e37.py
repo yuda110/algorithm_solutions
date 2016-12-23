@@ -1,11 +1,6 @@
-#여전히 함수인 수 찾기(11개)
-#조건
-#1)끝자리나 시작자리가 무조건 3 혹은 7일 것
-#2)시작과 끝자리 사이에 들어가는 수는 짝수나 5, 혹은 0이 아닐 것
 import time
 import primesieve
 
-#자신의 기준으로 한 소수 배열의 첫 번째가 자신인지 판별
 def is_prime(num):
     if primesieve.generate_n_primes(1, num)[0] == num:  
         pass
