@@ -11,4 +11,6 @@ def square_sum(range_from, range_to) :
         sum += i
     return sum**2
 
-print(square_sum(1, 101) - sum_square(1, 101))
+# print(square_sum(1, 101) - sum_square(1, 101))
+print(sum_square(1, 11))
+print(square_sum(1, 11))

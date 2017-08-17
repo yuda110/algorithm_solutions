@@ -6,10 +6,12 @@ def get_pentagon_num(seq):
     pentagon_num = int(seq * (3*seq - 1)/2)
     return pentagon_num
 
-def is_pentagon_num(num):
+# def is_pentagonal(num):
 
 
-if __name__ == '__main__':
+#
+# if __name__ == '__main__':
+#     return None
     # for i in range(1, 11):
     #     pen1 = get_pentagon_num(i)
     #     pen2 = get_pentagon_num(i+1)
