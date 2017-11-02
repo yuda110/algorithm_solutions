@@ -8,5 +8,5 @@ def solution(n):
         max_bin_gap = len(max(bin_gap_list, key=len))
     else:
         max_bin_gap = 0
-    
+
     return max_bin_gap
