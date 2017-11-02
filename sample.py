@@ -3,6 +3,7 @@ import math
 import primesieve
 import time
 
+
 # 소인수분해
 # def get_prime (num):
 #     factor_list = []
