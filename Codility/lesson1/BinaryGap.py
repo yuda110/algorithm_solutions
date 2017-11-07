@@ -10,3 +10,7 @@ def solution(n):
         max_bin_gap = 0
 
     return max_bin_gap
+
+if __name__ == '__main__':
+    result = solution(100)
+    print(result)
