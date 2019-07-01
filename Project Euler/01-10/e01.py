@@ -23,9 +23,19 @@
 #     print(sum)
 
 
-n = 1000
-a = ((n-1)//3)
-b = ((n-1)//5)
-c = ((n-1)//15)
-sum = (((3 * a * (a+1))//2) + ((5 * b * (b+1))//2) - ((15 * c * (c+1))//2))
-print(int(sum))
+# n = 1000
+# a = ((n-1)//3)
+# b = ((n-1)//5)
+# c = ((n-1)//15)
+# sum = (((3 * a * (a+1))//2) + ((5 * b * (b+1))//2) - ((15 * c * (c+1))//2))
+# print(int(sum))
+
+
+def foo(num):
+    return sum([i for i in range(1, num+1) if i % 3 == 0 or i % 5 == 0])
+
+
+if __name__ == '__main__':
+    result = foo(1000)
+    print(result)
+
