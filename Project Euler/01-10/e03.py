@@ -1,42 +1,16 @@
+"""
+어떤 수를 소수의 곱으로만 나타내는 것을 소인수분해라 하고, 이 소수들을 그 수의 소인수라고 합니다.
+예를 들면 13195의 소인수는 5, 7, 13, 29 입니다.
+
+600851475143의 소인수 중에서 가장 큰 수를 구하세요.
+"""
+
 import time
-
-
-def prime_factor(target):
-    last_prime = 0
-    i = 2
-    while target != 1:
-        while target % i == 0:
-            last_prime = i
-            target = target / i
-        if target == 1:
-            break
-        i += 1
-    return last_prime
-
-def prime_factor2(target):  # 위의 함수보다 0.001초 정도 빠름
-    result = 0
-    for i in range(2, target):
-        if target % i == 0:
-            result = i
-            target = target / i
-            print(result)
-        if target == 1:
-            break
-    return result
-
-def is_prime(target):
-    for i in range(2, int(target**0.5)+1):
-        if target % i == 0:
-            return False
-        if target == 1:
-            break
-    return True
+from py_modules import prime
 
 
 if __name__ == '__main__':
     start = time.time()
-    # prime_result = prime_factor(600851475143)
-    prime_result = prime_factor2(600851475143)
+    n = 600851475143
+    print(prime.prime_list(n))
     print(time.time() - start)
-    #
-    # print(is_prime(11))
