@@ -9,7 +9,7 @@ import functools
 import operator
 
 from py_modules.prime import prime_list
-from py_decorators.timer import logging_time
+from py_modules.timer import logging_time
 
 
 def get_prime_set(num):
@@ -36,32 +36,3 @@ def get_lcm():
 
 if __name__ == '__main__':
     print(get_lcm())
-
-
-# def is_devidable(num_todo, num_to_devide):
-#     return num_todo % num_to_devide == 0
-#
-#
-# def is_devidable_at_range(num_todo,range_from, range_to ):
-#     result = True
-#     for i in range(range_from, range_to):
-#         if not is_devidable(num_todo, i):
-#             result = False
-#             break
-#     return result
-
-
-# def find_devidable_min_value(range_from, range_to) :
-#     num_todo = range_to
-#     while True :
-#         if num_todo % range_to == 0 :
-#             if not is_devidable_at_range(num_todo, range_from, range_to) :
-#                 pass
-#                 # print(num_todo)
-#             else :
-#                 break
-#         num_todo += range_to
-#     return num_todo
-#
-#
-# print(find_devidable_min_value(1, 20))

@@ -1,16 +1,9 @@
-#python3
-def sum_square(range_from, range_to) :
-    sum_square = 0
-    for i in range(range_from, range_to) :
-        sum_square += i**2
-    return sum_square
+"""
+그러면 1부터 100까지 자연수에 대해 "합의 제곱"과 "제곱의 합"의 차이는 얼마입니까?
+"""
 
-def square_sum(range_from, range_to) :
-    sum = 0
-    for i in range(range_from, range_to) :
-        sum += i
-    return sum**2
-
-# print(square_sum(1, 101) - sum_square(1, 101))
-print(sum_square(1, 11))
-print(square_sum(1, 11))
+if __name__ == '__main__':
+    square_sum = sum([i**2 for i in range(1, 101)])
+    sum_square = sum(range(1, 101))**2
+    diff = abs(square_sum - sum_square)
+    print(diff)
