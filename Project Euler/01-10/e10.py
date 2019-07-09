@@ -1,29 +1,24 @@
-#python3
-import time
+"""
+이백만(2,000,000) 이하 소수의 합은 얼마입니까?
+"""
 
-#def is_prime_num(num) :
-#    i = 3
-#    while  i < num :
-#        if num % i != 0 :
-#            i += 2
-#        else :
-#            return False
-#    return True
-def is_prime_num(num) :
-    for i in range(2, int(num**0.5) + 1):
-        if num % i==0:
-            return False
-    return True
+from py_modules.timer import logging_time
+from py_modules.prime import is_prime
 
-def sum_prime_nums(range_to) :
-    prime_sum = 2+3+5+7
-    for num in range(7, range_to+1) :
-        if num % 2 !=0 and num % 3 !=0 and num % 5 !=0 and num % 7 !=0 :    #sieve of Eratosthenes
-            if is_prime_num(num) :
-                prime_sum = prime_sum + num
-        num += 2
-    return prime_sum
 
-start_time = time.time()
-print(sum_prime_nums(2000000))
-print("--- %s seconds ---" % (time.time() - start_time))
+# 5.4sec
+@logging_time
+def sum_prime_nums(num):
+    result = 2 + 3 + 5 + 7
+    cnt = 0
+    for n in range(3, num+1, 2):
+        if n % 3 == 0 or n % 5 == 0 or n % 7 == 0:  # sieve of Eratosthenes
+            cnt += 1
+            pass
+        elif is_prime(n):
+            result += n
+    return result
+
+
+if __name__ == '__main__':
+    sum_prime_nums(2000000)
