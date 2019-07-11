@@ -1,66 +1,69 @@
-#python3
-def classify_nums(nums) :
-    arr = [0]*20*20
-    i = 1
-    while i < len(nums) :
-        for j in range(0, len(arr)) :
-            arr[j] = nums[i : i+2]
-            i += 3
-    return arr
+from py_modules.timer import logging_time
 
-def multiple_horizon(arr) :
+
+@logging_time
+def convert_nums_to_list(nums):
+    return nums.replace('\n', ' ').split(' ')[1:]
+
+
+@logging_time
+def multiple_horizon(arr):
     mul = 0
-    mul_max = 0
     i = 0
-    while i < 20*20 :
-        for j in range(0, 20-3) :
-            mul = int(arr[i+j]) * int(arr[i+j+1]) * int(arr[i+j+2]) * int(arr[i+j+3])
-            if mul > mul_max :
-                mul_max = mul
+    while i < 20*20:
+        for j in range(0, 20-3):
+            tmp = int(arr[i+j]) * int(arr[i+j+1]) * int(arr[i+j+2]) * int(arr[i+j+3])
+            if tmp > mul:
+                mul = tmp
         i += 20
-    return mul_max 
+    return mul
 
-def multiple_vertical(arr) :
+
+@logging_time
+def multiple_vertical(arr):
     mul = 0
-    mul_max = 0
-    for i in range(0, 20) :
+    for i in range(0, 20):
         j = 0
-        while j < 20*(20-3) :
-            mul = int(arr[i+j]) * int(arr[i+j+20]) * int(arr[i+j+40]) * int(arr[i+j+60])
-            if mul > mul_max :
-                mul_max = mul
+        while j < 20*(20-3):
+            tmp = int(arr[i+j]) * int(arr[i+j+20]) * int(arr[i+j+40]) * int(arr[i+j+60])
+            if tmp > mul:
+                mul = tmp
             j += 20
-    return mul_max 
+    return mul
 
-def multiple_diagonal_to_the_right(arr) :
+
+@logging_time
+def multiple_diagonal_to_the_right(arr):
     mul = 0
-    mul_max = 0
     h = 0
-    while h < 20*(20-3) :
+    while h < 20*(20-3):
         i = 0
-        while i < 20-3 :
-            mul = int(arr[h+i]) * int(arr[h+(i+1)+20]) * int(arr[h+(i+2)+40]) * int(arr[h+(i+3)+60])
-            if mul > mul_max :
-                mul_max = mul
+        while i < 20-3:
+            tmp = int(arr[h+i]) * int(arr[h+(i+1)+20]) * int(arr[h+(i+2)+40]) * int(arr[h+(i+3)+60])
+            if tmp > mul:
+                mul = tmp
             i += 1
         h += 20
-    return mul_max
+    return mul
 
-def multiple_diagonal_to_the_left(arr) :
+
+@logging_time
+def multiple_diagonal_to_the_left(arr):
     mul = 0
-    mul_max = 0
     h = 0
-    while h < 20*(20-3) :
+    while h < 20*(20-3):
         i = 19
-        while i > 2 :
-            mul = int(arr[h+i]) * int(arr[h+(i-1)+20]) * int(arr[h+(i-2)+40]) * int(arr[h+(i-3)+60])
-            if mul > mul_max :
-                mul_max = mul
+        while i > 2:
+            tmp = int(arr[h+i]) * int(arr[h+(i-1)+20]) * int(arr[h+(i-2)+40]) * int(arr[h+(i-3)+60])
+            if tmp > mul:
+                mul = tmp
             i -= 1
         h += 20
-    return mul_max
+    return mul
 
-arr = classify_nums("""
+
+if __name__ == '__main__':
+    grid = convert_nums_to_list("""
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
@@ -80,7 +83,9 @@ arr = classify_nums("""
 04 42 16 73 38 25 39 11 24 94 72 18 08 46 29 32 40 62 76 36
 20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
-01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
-""")
+01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48""")
 
-print(max(multiple_horizon(arr), multiple_vertical(arr), multiple_diagonal_to_the_right(arr), multiple_diagonal_to_the_left(arr)))
+    print(multiple_horizon(grid))
+    print(multiple_vertical(grid))
+    print(multiple_diagonal_to_the_right(grid))
+    print(multiple_diagonal_to_the_left(grid))
