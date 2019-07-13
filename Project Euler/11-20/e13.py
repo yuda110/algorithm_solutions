@@ -1,11 +1,19 @@
-#python3
-def plus_all_num(str_num) :
-    sum = 0
-    for i in range(1, 101):
-        sum += int(str_num.split('\n')[i])
-    return sum
+"""
+아래에 50자리 숫자가 100개 있습니다. 이것을 모두 더한 값의 첫 10자리는 얼마입니까?
+"""
 
-a = """
+from py_modules.timer import logging_time
+
+
+@logging_time
+def solution(str_num):
+    str_list = str_num.strip().split('\n')
+    result = sum([int(i) for i in str_list])
+    return str(result)[:10]
+
+
+if __name__ == '__main__':
+    x = """
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
 74324986199524741059474233309513058123726617309629
@@ -107,5 +115,4 @@ a = """
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690
 """
-
-print(str(plus_all_num(a))[0:10])
+    solution(x)
