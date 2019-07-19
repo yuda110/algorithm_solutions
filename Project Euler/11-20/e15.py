@@ -9,9 +9,9 @@ from py_modules.timer import logging_time
 def cal_number_of_case():
     pre_case = [1]*21
     next_case = [1]*21
-    while pre_case[1] < 21:
-        for i in range(1, 21):
-            next_case[i] = next_case[i-1] + pre_case[i]
+    for i in range(1, 21):
+        for j in range(1, 21):
+            next_case[j] = next_case[j-1] + pre_case[j]
             pre_case = next_case
     return next_case[-1]
 
