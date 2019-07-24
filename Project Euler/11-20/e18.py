@@ -1,33 +1,38 @@
-#python3
-import re
+"""
+#make_arr()로 배열 만들고 아래서부터 위로 큰수 합쳐가는 식으로 계산
+아래에서 위로 올라갈 때 작은 삼각형을 만들어 가장 큰 수를 만드는 삼각형을 선택한다.
+"""
+from py_modules.timer import logging_time
 
-def make_arr(triangle_nums) :
+
+def make_arr(triangle_nums):
     arr = triangle_nums.split('\n')
-    new_arr = []
-    for i in range(len(arr)) :
-        new_arr.append(re.findall("\d+", arr[i]))
-    return new_arr     
+    new_arr = [i.split(' ') for i in arr]
+    return new_arr
 
-def cal_max_sum(triangle_nums) :
-    new_arr = make_arr(triangle_nums)
+
+@logging_time
+def cal_max_sum(num):
+    new_arr = make_arr(num)
     i = len(new_arr)-1
 
-    while i > 0 :
-        for j in range(i) :
-            pre_num = int(new_arr[i-1][j]) 
-            first_num = int(new_arr[i][j]) 
-            second_num =  int(new_arr[i][j+1])
-            if first_num > second_num :
-                pre_num += first_num
-                new_arr[i-1][j] = pre_num 
-            else :
-                pre_num += second_num
-                new_arr[i-1][j] = pre_num
+    top_num = 0
+    while i > 0:
+        for j in range(i):
+            top_num = int(new_arr[i-1][j])
+            left_num = int(new_arr[i][j])
+            right_num = int(new_arr[i][j+1])
+            if left_num > right_num:
+                top_num += left_num
+            else:
+                top_num += right_num
+            new_arr[i-1][j] = top_num
         i -= 1
-                
-    return pre_num
+    return top_num
 
-triangle_nums = """75
+
+if __name__ == '__main__':
+    triangle = """75
 95 64
 17 47 82
 18 35 87 10
@@ -42,5 +47,4 @@ triangle_nums = """75
 91 71 52 38 17 14 91 43 58 50 27 29 48
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"""
-
-print(cal_max_sum(triangle_nums))
+    cal_max_sum(triangle)
