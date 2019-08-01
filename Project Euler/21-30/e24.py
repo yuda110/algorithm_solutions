@@ -1,16 +1,19 @@
-#python3
-import time
+"""
+Lexicographic permutations
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9로 만들 수 있는 사전식 순열에서 1,000,000번째는 무엇입니까?
+"""
+from py_modules.timer import logging_time
 import itertools
 
-def cal_lexicographic_permutation(range_to) :
-    seq = 1
+
+@logging_time
+def solution(range_to):
     num = '0123456789'
     num_list = itertools.permutations(num)
-    for lexi_num in num_list :
-        if seq == range_to :
-            return "".join(lexi_num)
-        seq += 1
+    for idx, lexi_num in enumerate(num_list, 1):
+        if idx == range_to:
+            return ''.join(lexi_num)
 
-start_time = time.time()
-print(cal_lexicographic_permutation(1000000))
-print("--- %s seconds ---" % (time.time() - start_time))
+
+if __name__ == '__main__':
+    solution(1000000)
